@@ -20,22 +20,9 @@ def is_contains_chinese(strs):
 
 def get_org_url():
     print("[italic yellow]正在获取CopyManga网站Url...[/]")
-    url = "https://ghproxy.net/https://raw.githubusercontent.com/misaka10843/copymanga-downloader/master/url.json"
-    try:
-        response = requests.get(url, proxies=config.PROXIES)
-        response.raise_for_status()
-        return response.json()
-    except Exception as e:
-        print("[bold yellow]无法链接至ghproxy.net，准备直接访问Github[/]")
-        # 更换URL
-        url = "https://raw.githubusercontent.com/misaka10843/copymanga-downloader/master/url.json"
-        try:
-            response = requests.get(url, proxies=config.PROXIES)
-            response.raise_for_status()
-            return response.json()
-        except Exception as e:
-            print(f"[bold red]无法链接至GitHub，请检查网络连接,ErrMsg:{e}[/]", )
-            sys.exit()
+    with open('url.json') as file:
+        data = json.load(file)
+    return data
 
 
 def set_settings():
