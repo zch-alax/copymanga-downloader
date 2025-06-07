@@ -58,7 +58,6 @@ API_HEADER = {
     'version': datetime.datetime.now().strftime("%Y.%m.%d"),
     'region': '0',
     'webp': '0',
-    "platform": "1",
     "referer": "https://www.copymanga.com/"
 }
 
