@@ -32,7 +32,7 @@ def epub_transformer(path: str, name: str, chapter: str) -> None:
     """
     # 定义命令和参数
     # command = SETTINGS["kcc_cmd"]
-    arguments = ["-o", f'{path}/{name}/{chapter}/{name} {chapter}.epub', "-t", f"{name} {chapter}",
+    arguments = ["m", "-u", "-s", "-o", f'{path}/{name}/{chapter}/{name} {chapter}.epub', "-t", f"{name} {chapter}",
                  f'{path}/{name}/{chapter}']
     command = config.SETTINGS["kcc_cmd"].split(" ") + arguments
     subprocess.run(command, shell=True, capture_output=True, text=True)
